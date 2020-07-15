@@ -1,13 +1,9 @@
 import { Router } from 'express'
-import '../lib/env'
+
+import twiterRoutes from './twiter'
 
 const routes = Router()
 
-routes.get('/', (request, response) => {
-  const key = process.env.API_key
-  console.log(key);
-
-  return response.status(200).send({ menssage: key })
-})
+routes.use('/tweets', twiterRoutes)
 
 export default routes
